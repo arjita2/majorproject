@@ -5,15 +5,15 @@ import SearchBar from './SearchBar';
 import { FaPrint, FaBoxOpen, FaLaptopCode, FaPalette } from 'react-icons/fa';
 
 const servicesList = [
-  { name: "Offset Printing", path: "#", icon: <FaPrint /> },
-  { name: "Digital Printing", path: "#", icon: <FaLaptopCode /> },
-  { name: "Packaging", path: "#", icon: <FaBoxOpen /> },
-  { name: "Design Services", path: "#", icon: <FaPalette /> }
+  { name: "Offset Printing", path: "/services/offset-printing", icon: <FaPrint /> },
+  { name: "Digital Printing", path: "/services/digital-printing", icon: <FaLaptopCode /> },
+  { name: "Packaging", path: "/services/packaging", icon: <FaBoxOpen /> },
+  { name: "Design Services", path: "/services/design-services", icon: <FaPalette /> }
 ];
 
 const menuItems = [
   { name: "Home", path: "/" },
-  { name: "Services", path: "#" },
+  { name: "Services", path: "/services" },
   { name: "About Us", path: "/about" },
   { name: "Our Blogs", path: "#" },
   { name: "Contact Us", path: "#contact" },
@@ -42,7 +42,7 @@ function Header({ isMenuOpen, setIsMenuOpen }) {
                   onMouseEnter={() => setShowServices(true)}
                   onMouseLeave={() => setShowServices(false)}
                 >
-                  <span>{item.name}</span>
+                  <span><Link to={item.path}>{item.name}</Link></span>
 
                   {showServices && (
                     <ul className="absolute top-14 left-0 w-60 bg-white border rounded-xl shadow-xl flex flex-col z-50 p-4 space-y-2 transition-all duration-300">
