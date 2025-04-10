@@ -13,9 +13,7 @@ function Home() {
   }, []);
 
   // Option A: Scroll to footer
-  const scrollToFooter = () => {
-    document.getElementById('footer')?.scrollIntoView({ behavior: 'smooth' });
-  };
+
 
   // Option B: Navigate to contact page
   const handleContactClick = () => {
@@ -94,9 +92,7 @@ function Home() {
       </section>
 
       {/* Optional Footer Placeholder */}
-      <div id="footer" className="bg-gray-100 p-8 text-center text-sm text-gray-500">
-        Footer Placeholder — Replace with your real footer content
-      </div>
+     
     </div>
   );
 }
