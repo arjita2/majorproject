@@ -82,10 +82,7 @@ function Home() {
         <div className="max-w-5xl mx-auto rounded-lg overflow-hidden shadow-2xl">
           <video
             src={videoFile}
-            controls
-            autoPlay
-            muted
-            loop
+            
             className="w-full h-auto"
           />
         </div>
