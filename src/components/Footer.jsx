@@ -1,61 +1,61 @@
 import React from 'react';
-import { FaFacebookF, FaInstagram } from 'react-icons/fa';
+import { FaPhoneAlt, FaWhatsapp, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 
-function Footer() {
+const ContactUsSection = () => {
   return (
-    <footer id="footer" className="bg-black text-white py-10 px-8 md:px-32">
-      <div className="flex flex-col md:flex-row justify-between gap-8">
-        {/* Left - About */}
-        <div className="md:w-1/3">
-          <h2 className="text-yellow-400 text-2xl font-bold mb-4">Subak Offset LLP</h2>
-          <p>
-            Established in 2012, Subak Offset LLP is one of the leading printing solution providers in Kolhapur.
-          </p>
+    <section className="bg-[#18191A] text-white py-16 px-6 md:px-24">
+      <div className="grid md:grid-cols-3 gap-10 text-center md:text-left">
+        {/* Services List */}
+        <div>
+          <h3 className="text-lg font-semibold mb-6">Our Services</h3>
+          <ul className="space-y-3 text-gray-300 text-base">
+            <li className="border-b border-gray-600 pb-2">Corporate Stationery</li>
+            <li className="border-b border-gray-600 pb-2">Outdoor Signage</li>
+            <li className="border-b border-gray-600 pb-2">Marketing Collaterals</li>
+            <li className="border-b border-gray-600 pb-2">Box Packaging</li>
+            <li className="border-b border-gray-600 pb-2">Indoor Signage</li>
+            <li className="border-b border-gray-600 pb-2">POS Display Shelves</li>
+          </ul>
         </div>
 
-        {/* Center - Location */}
-        <div className="md:w-1/3">
-          <h3 className="text-white text-xl font-semibold mb-2">Our Location</h3>
-          <p>
-            1243/36 B Ward, Charne Engineering Works, <br />
-            Shivaji Udyamnagar, Kolhapur
-          </p>
-          <a
-            href="https://maps.google.com?q=1243/36+B+Ward,+Shivaji+Udyamnagar,+Kolhapur"
-            target="_blank"
-            rel="noreferrer"
-            className="text-blue-400 mt-2 block"
-          >
-            📍 Get Directions
-          </a>
-        </div>
-
-        {/* Right - Contact Info */}
-        <div className="md:w-1/3">
-          <h3 className="text-white text-xl font-semibold mb-2">Contact Us</h3>
-          <p>📞 9922430684</p>
-          <p>📞 9011169691</p>
-          <p>✉️ info@subakoffset.com</p>
-
-          {/* Optional: Social Media Icons */}
-          <div className="flex gap-4 mt-4">
-            <a href="https://facebook.com" target="_blank" rel="noreferrer" className="text-white hover:text-yellow-400">
-              <FaFacebookF />
-            </a>
-            <a href="https://instagram.com" target="_blank" rel="noreferrer" className="text-white hover:text-yellow-400">
-              <FaInstagram />
-            </a>
+        {/* Contact Info */}
+        <div>
+          <div className="flex justify-center md:justify-start mb-4">
+            <FaPhoneAlt className="text-cyan-400 text-4xl" />
           </div>
+          <h3 className="text-xl font-semibold mb-2">Call Us:</h3>
+          <p className="text-gray-300 mb-1">+91 9922430684</p>
+          <p className="text-gray-300 mb-4">+91 9011169691</p>
+
+          <h3 className="text-xl font-semibold mb-2">Email:</h3>
+          <p className="text-gray-300 mb-4">info@subakoffset.com</p>
+
+          <h3 className="text-xl font-semibold mb-2">WhatsApp Business:</h3>
+          <p className="text-gray-300">+91 9922430684</p>
+        </div>
+
+        {/* Address Info */}
+        <div>
+          <div className="flex justify-center md:justify-start mb-4">
+            <FaMapMarkerAlt className="text-cyan-400 text-4xl" />
+          </div>
+          <h3 className="uppercase text-sm tracking-widest text-gray-400 mb-2">Subak Offset LLP</h3>
+          <h4 className="font-semibold text-lg mb-1">Factory & Office Address:</h4>
+          <p className="text-gray-300 leading-relaxed">
+            1243/36 B Ward, Charne Engineering Works,<br />
+            Shivaji Udyamnagar, Kolhapur – 416008
+          </p>
         </div>
       </div>
 
-      {/* Bottom Text */}
-      <div className="mt-10 text-center text-gray-400 text-sm">
+      {/* Footer Bottom */}
+      <div className="mt-12 border-t border-gray-700 pt-6 text-center text-sm text-gray-400">
         © {new Date().getFullYear()} Subak Offset LLP. All rights reserved.
       </div>
-    </footer>
+    </section>
   );
-}
+};
 
-export default Footer;
+export default ContactUsSection;
+
 
