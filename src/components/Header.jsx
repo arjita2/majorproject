@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import logo from '../assets/logo.jpeg';
 import { FaPrint, FaBoxOpen, FaLaptopCode, FaPalette } from 'react-icons/fa';
 
+
+
 const servicesList = [
   { name: "Offset Printing", path: "/services/offset-printing", icon: <FaPrint /> },
   { name: "Digital Printing", path: "/services/digital-printing", icon: <FaLaptopCode /> },
