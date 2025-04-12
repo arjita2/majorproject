@@ -8,6 +8,8 @@ import heidelberg8color from "../assets/heidelberg8color.jpg";
 import komori26 from "../assets/komori26.jpg";
 import komori37 from "../assets/komori37.jpg";
 import topsetter from "../assets/topsetter.jpeg";
+import OIP from "../assets/OIP.jpeg";
+import aboutus from "../assets/aboutus.png";
 
 const AboutUs = () => {
   const [selected, setSelected] = useState("about");
@@ -26,44 +28,84 @@ const AboutUs = () => {
     about: {
       title: "About Subak Offset LLP",
       text: (
-        <div className="space-y-10">
-          <div className="text-center text-gray-700 text-lg leading-relaxed">
-            <p>
-              <strong>Kolhapur’s Premier Digital & Offset Printing Service</strong>
-            </p>
-            <br />
-            <p>
-              Subak Offset LLP, established in 2015 by Mr. Tanaji Chougale, has grown into one of Kolhapur’s most respected names in digital and offset printing. With a decade of experience, Subak has built a strong reputation for delivering innovative, high-quality, and customized printing solutions that meet the evolving needs of businesses across sectors.
-            </p>
-            <br />
-            <p>
-              From its base in Kolhapur, Subak Offset operates a modern facility equipped with advanced printing machinery and a team of skilled professionals dedicated to excellence. The company offers a comprehensive range of services—including digital, offset, signage, packaging, and large-format printing—making it a true one-stop solution for all printing needs in the region.
-            </p>
-            <br />
-            <p>
-              Our commitment to quality, timely delivery, and customer satisfaction has positioned Subak Offset LLP as a reliable partner for local enterprises, retailers, and commercial clients. Over the years, we’ve continually embraced new technologies and techniques to ensure that every print reflects precision, professionalism, and passion.
-            </p>
+        <div className="w-full bg-cover bg-center bg-no-repeat py-20" style={{ backgroundImage: `url(${aboutusback})` }}>
+          <div className="bg-white/90 py-16 px-8 md:px-16 lg:px-32 rounded-xl shadow-xl space-y-16">
+            <div className="flex flex-col md:flex-row items-center gap-12">
+              {/* Left Side - Text Content */}
+              <motion.div
+                initial={{ x: -200, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                transition={{ duration: 1 }}
+                className="w-full md:w-1/2 space-y-6 text-left text-gray-700 text-lg leading-relaxed"
+              >
+                <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">
+              
+                </h2>
+                <p>
+                  <strong>Kolhapur’s Premier Digital & Offset Printing Service</strong>
+                </p>
+                <p>
+                  Subak Offset LLP, established in 2015 by Mr. Tanaji Chougale, has
+                  grown into one of Kolhapur’s most respected names in digital and
+                  offset printing. With a decade of experience, Subak has built a
+                  strong reputation for delivering innovative, high-quality, and
+                  customized printing solutions that meet the evolving needs of
+                  businesses across sectors.
+                </p>
+                <p>
+                  From its base in Kolhapur, Subak Offset operates a modern facility
+                  equipped with advanced printing machinery and a team of skilled
+                  professionals dedicated to excellence. The company offers a
+                  comprehensive range of services—including digital, offset, signage,
+                  packaging, and large-format printing—making it a true one-stop
+                  solution for all printing needs in the region.
+                </p>
+                <p>
+                  Our commitment to quality, timely delivery, and customer
+                  satisfaction has positioned Subak Offset LLP as a reliable partner
+                  for local enterprises, retailers, and commercial clients. Over the
+                  years, we’ve continually embraced new technologies and techniques
+                  to ensure that every print reflects precision, professionalism, and
+                  passion.
+                </p>
+              </motion.div>
+    
+              {/* Right Side - Image with Transition */}
+              <motion.div
+                initial={{ x: 200, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                transition={{ duration: 1 }}
+                className="w-full md:w-1/2 overflow-hidden rounded-2xl shadow-lg"
+              >
+                <img
+                  src={OIP}
+                  alt="Subak Offset Facility"
+                  className="w-full h-auto object-cover"
+                />
+              </motion.div>
+            </div>
+    
+            {/* OUR TEAM Section with Increased Image Size */}
+            <motion.div
+              initial={{ opacity: 0, y: 100 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.9 }}
+              className="text-center space-y-6 pt-12"
+            >
+              <h3 className="text-3xl md:text-4xl font-bold text-gray-800">Our Team</h3>
+              <img
+                src={aboutus}
+                alt="Our Team"
+                className="mx-auto rounded-xl shadow-lg w-full max-w-6xl object-cover" // Increased size here
+              />
+            </motion.div>
           </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="bg-white p-6"
-          >
-            <h3 className="text-2xl text-center font-semibold text-gray-800 mb-4">
-              Our Team
-            </h3>
-            <img
-              src="/src/assets/aboutus.png"
-              alt="Subak Offset Team"
-              className="w-full h-auto rounded-md object-cover"
-            />
-          </motion.div>
         </div>
       ),
     },
+    
+
+    
 
     values: {
       title: "Our Core Values",
