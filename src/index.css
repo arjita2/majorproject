@@ -2,3 +2,52 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+    .animate-slide-left {
+      animation: slideLeft 1s ease-out forwards;
+    }
+    .animate-slide-right {
+      animation: slideRight 1s ease-out forwards;
+    }
+  
+    @keyframes slideLeft {
+      0% {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+  
+    @keyframes slideRight {
+      0% {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    @keyframes float {
+        0%, 100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+      
+      .animate-floating {
+        animation: float 3s ease-in-out infinite;
+      }
+      .hide-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .hide-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+  }
