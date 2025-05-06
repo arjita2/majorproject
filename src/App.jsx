@@ -18,7 +18,7 @@ function App() {
 
   return (
     <Router>
-      <div className="w-full min-h-screen bg-gradient-to-r from-blue-400 to-emerald-400 scroll-smooth">
+      <div className="w-full min-h-screen  scroll-smooth">
         <Header isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
 
         <Routes>

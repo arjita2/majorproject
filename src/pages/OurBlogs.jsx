@@ -11,8 +11,9 @@ const blogPosts = [
   {
     id: 1,
     img: blog1,
-    title: 'The Ultimate Guide to Food and Packaging Services: Everything You Need to Know.',
-    content: `In the dynamic world of food production and distribution, packaging plays a crucial role. It not only protects food products but also influences consumer perception and brand identity. The significance of food packaging cannot be overstated; it ensures safety, enhances shelf life, and appeals to customers. In this comprehensive guide, we will explore food and packaging services, delve into the various types of food packaging, discuss key packaging companies—especially those in Bangalore—and highlight innovations and trends shaping the future of food packaging.
+    title: <b>'The Ultimate Guide to Food and Packaging Services: Everything You Need to Know.'</b>,
+    preview: 'In the dynamic world of food production and distribution, packaging plays a crucial role. It not only protects food products but also influences consumer perception and brand identity. The significance of food packaging cannot be overstated; it ensures safety, enhances shelf life, and appeals to customers. In this comprehensive guide, we will explore food and packaging services, delve into the various types of food packaging, discuss key packaging companies—especially those in Bangalore—and highlight innovations and trends shaping the future of food packaging.',
+    content: `
 
 1: Understanding Food Packaging  
 What is Food Packaging?
@@ -103,9 +104,9 @@ Food and packaging services play an integral role in the food industry. By under
   {
     id: 2,
     img: blog2,
-    title: 'What are the Latest Trends in Commercial Printing?',
-    content: `The commercial printing industry has long been a critical component of marketing and communication strategies across various sectors. As businesses evolve and consumer preferences shift, the printing landscape is undergoing significant changes. In this comprehensive blog post, we will delve into the latest trends in commercial printing, exploring technological advancements, sustainability efforts, customization, and much more.
-
+    title: <b>'What are the Latest Trends in Commercial Printing?'</b>,
+    preview:'The commercial printing industry has long been a critical component of marketing and communication strategies across various sectors. As businesses evolve and consumer preferences shift, the printing landscape is undergoing significant changes. In this comprehensive blog post, we will delve into the latest trends in commercial printing, exploring technological advancements, sustainability efforts, customization, and much more.',
+    content: `
  1: Technological Advancements
 Digital Printing Revolution
 The Shift to Digital
@@ -758,82 +759,86 @@ Whether you’re a business owner, artist, or hobbyist, UV flatbed printing offe
 ];
 
 const BlogListWithModal = () => {
-    const [selectedBlog, setSelectedBlog] = useState(null);
-  
-    const openModal = (blogId) => {
-      const blog = blogPosts.find((b) => b.id === blogId);
-      setSelectedBlog(blog);
-    };
-  
-    const closeModal = () => setSelectedBlog(null);
-  
-    const cardVariants = {
-      hidden: { opacity: 0, y: 50 },
-      show: {
-        opacity: 1,
-        y: 0,
-        transition: { duration: 0.8, ease: 'easeOut' },
-      },
-    };
-  
-    return (
-      <div className="py-12 px-4 md:px-10 bg-gray-100">
-        <h2 className="text-3xl font-bold text-center mb-10 text-red-600">Our Blog Articles</h2>
-  
-        <div className="space-y-8">
-          {blogPosts.map((post) => (
-            <motion.div
-              key={post.id}
-              variants={cardVariants}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.2 }}
-              className="flex flex-col md:flex-row bg-white rounded-xl shadow-md overflow-hidden"
-            >
-              <img
-                src={post.img}
-                alt={post.title}
-                className="w-full md:w-1/2 object-cover h-[400px]"
-              />
-              <div className="p-4 md:p-6 flex flex-col justify-between md:w-1/2">
-                <h3 className="text-lg md:text-xl font-semibold text-gray-800 mb-3">
-                  {post.title}
-                </h3>
-                <button
-                  onClick={() => openModal(post.id)}
-                  className="mt-auto border border-red-600 text-red-600 hover:bg-red-600 hover:text-white transition duration-300 py-1.5 px-4 rounded text-sm font-medium w-fit"
-                >
-                  Read More
-                </button>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-  
-        {/* Modal */}
-        {selectedBlog && (
-          <div className="fixed inset-0 bg-black bg-opacity-60 flex justify-center items-center z-50">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
-              className="bg-white p-6 rounded-lg w-11/12 max-w-4xl max-h-[90vh] overflow-y-auto relative shadow-xl"
-            >
-              <button
-                onClick={closeModal}
-                className="absolute top-3 right-4 text-gray-500 text-2xl hover:text-red-600"
-              >
-                &times;
-              </button>
-              <h2 className="text-2xl font-bold text-red-600 mb-4">{selectedBlog.title}</h2>
-              <p className="text-gray-700 whitespace-pre-line">{selectedBlog.content}</p>
-            </motion.div>
-          </div>
-        )}
-      </div>
-    );
+  const [selectedBlog, setSelectedBlog] = useState(null);
+
+  const openModal = (blogId) => {
+    const blog = blogPosts.find((b) => b.id === blogId);
+    setSelectedBlog(blog);
   };
-  
-  export default BlogListWithModal;
+
+  const closeModal = () => setSelectedBlog(null);
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: 'easeOut' },
+    },
+  };
+
+  return (
+    <div className="py-12 px-4 md:px-10 bg-gray-100">
+      <h2 className="text-3xl font-bold text-center mb-10 text-red-600">Our Blog Articles</h2>
+
+      <div className="space-y-8">
+        {blogPosts.map((post) => (
+          <motion.div
+            key={post.id}
+            variants={cardVariants}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+            className="flex flex-col md:flex-row bg-white rounded-xl shadow-md overflow-hidden"
+          >
+            <img
+              src={post.img}
+              alt={`Blog image for ${post.title}`}
+              className="w-full md:w-1/2 object-cover h-[400px]"
+            />
+            <div className="p-4 md:p-6 flex flex-col justify-between md:w-1/2">
+              <h3 className="text-lg md:text-xl font-semibold text-gray-800 mb-3">
+                {post.title}
+              </h3>
+              {/* ✅ Add Preview Here */}
+              <p className="text-black text-justify text-lg mb-6 line-clamp-8">{post.preview}</p>
+
+              <button
+                onClick={() => openModal(post.id)}
+                className="mt-auto border border-red-600 text-red-600 hover:bg-red-600 hover:text-white transition duration-300 py-1.5 px-4 rounded text-sm font-medium w-fit"
+              >
+                Read More
+              </button>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+
+      {/* Modal */}
+      {selectedBlog && (
+        <div className="fixed inset-0 bg-black bg-opacity-60 flex justify-center items-center z-50">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            className="bg-white p-6 rounded-lg w-11/12 max-w-4xl max-h-[90vh] overflow-y-auto relative shadow-xl"
+          >
+            <button
+              onClick={closeModal}
+              className="absolute top-3 right-4 text-gray-500 text-2xl hover:text-red-600"
+            >
+              &times;
+            </button>
+            <h2 className="text-2xl font-bold text-red-600 mb-4">{selectedBlog.title}</h2>
+            <p className="text-gray-700 whitespace-pre-line text-justify">{selectedBlog.content}</p>
+          </motion.div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default BlogListWithModal;
+
 
 
