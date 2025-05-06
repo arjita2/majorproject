@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../assets/logo.jpeg';
-import { servicesList } from '../data/servicesData'; // Make sure the path is correct
+import { servicesList } from '../data/servicesData';
 
 const menuItemsLeft = [
   { name: "Home", path: "/" },
@@ -10,9 +10,9 @@ const menuItemsLeft = [
 ];
 
 const menuItemsRight = [
-  { name: "Our Blogs", path: "#" },
+  { name: "Our Blogs", path: "/blogs" },
   { name: "Contact Us", path: "/contact" },
-  { name: "Shop", path: "#" }
+  { name: "Shop", path: "/shop" } // Updated path for Shop
 ];
 
 function Header({ isMenuOpen, setIsMenuOpen }) {
@@ -113,6 +113,22 @@ function Header({ isMenuOpen, setIsMenuOpen }) {
         className="bx bx-menu xl:hidden block text-4xl cursor-pointer ml-4"
         onClick={() => setIsMenuOpen(!isMenuOpen)}
       ></i>
+
+      {/* Mobile Menu */}
+      {isMenuOpen && (
+        <div className="xl:hidden flex flex-col gap-4">
+          {menuItemsLeft.map((item, index) => (
+            <Link key={index} to={item.path} className="text-lg py-2">
+              {item.name}
+            </Link>
+          ))}
+          {menuItemsRight.map((item, index) => (
+            <Link key={index} to={item.path} className="text-lg py-2">
+              {item.name}
+            </Link>
+          ))}
+        </div>
+      )}
     </header>
   );
 }

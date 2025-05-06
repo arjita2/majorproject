@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
+// Importing components and pages
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import AboutUs from './pages/AboutUs';
 import Services from './pages/Services';
 import ServiceDetail from './pages/ServiceDetail';
-import ContactUs from './pages/ContactUs'; // We'll create this soon
+import ContactUs from './pages/ContactUs';
 
+import OurBlogs from './pages/OurBlogs';
+import Shop from './pages/Shop';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -23,19 +26,21 @@ function App() {
           <Route path="/about" element={<AboutUs />} />
           <Route path="/services" element={<Services />} />
           <Route path="/services/:serviceId" element={<ServiceDetail />} />
-          <Route path="/contactus" element={<ContactUs />} />
-         
+          <Route path="/contact" element={<ContactUs />}/>
+          <Route path="/blogs" element={<OurBlogs />} />
+          <Route path="/shop" element={<Shop />} />
           
+
+
+          
+          {/* Optional: Catch-all for 404 */}
+          {/* <Route path="*" element={<NotFound />} /> */}
         </Routes>
 
-
-        <div id="contact">
-          <Footer />
-        </div>
+        <Footer />
       </div>
     </Router>
   );
 }
 
 export default App;
-
